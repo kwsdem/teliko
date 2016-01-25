@@ -5,7 +5,10 @@
     <% end %>
   <% end %>
 <% else %>
-  <%= form_tag like_path(likeable_type: likeable.class.to_s, likeable_id: likeable.id), remote: true do %>
+  <%= link_to like_post_path(@post), method: :put, class: "btn btn-default" do %>
+    <span class="glyphicon glyphicon-like">
+      <%= @post.get_upvotes.size %>
+    </span>
     <% button_tag class: 'btn btn-block' do %>
       <%= fa_icon 'thumbs-up' %> like
     <% end %>
